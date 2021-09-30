@@ -25,3 +25,6 @@ node/
 
 #flattened POMs
 .flattened-pom.xml
+
+
+.DS_Store
