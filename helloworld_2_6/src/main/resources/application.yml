@@ -32,6 +32,6 @@ spring:
     boot:
         admin:
             client:
-                url: http://localhost:8080/monitor
+                url: http://localhost:8080
     jmx:
         enabled: true
