@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.1</version>
+    <version>2.6.2</version>
   </parent>
 
   <groupId>de.codecentric</groupId>
@@ -18,7 +18,7 @@
   <description>Hello World</description>
 
   <properties>
-    <spring-boot-admin.version>2.6.0-SNAPSHOT</spring-boot-admin.version>
+    <spring-boot-admin.version>2.6.2</spring-boot-admin.version>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>

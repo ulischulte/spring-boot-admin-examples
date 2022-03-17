@@ -7,18 +7,18 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.1</version>
+    <version>2.6.2</version>
   </parent>
 
   <groupId>de.codecentric</groupId>
   <artifactId>spring-boot-admin</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <name>${project.artifactId}</name>
   <version>0.0.2-SNAPSHOT</version>
   <description>Spring Boot Admin Example</description>
 
   <properties>
-    <spring-boot-admin.version>2.6.0-SNAPSHOT</spring-boot-admin.version>
+    <spring-boot-admin.version>2.6.2</spring-boot-admin.version>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -57,28 +57,33 @@
   </dependencies>
 
   <build>
-    <finalName>spring-boot-admin</finalName>
+    <finalName>${project.artifactId}</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>repackage</id>
             <goals>
               <goal>repackage</goal>
-              <!-- Build-Infos for Info-Actuator -->
               <goal>build-info</goal>
             </goals>
           </execution>
         </executions>
-      </plugin>
-      <!-- GIT-Infos for Info-Actuator -->
-      <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
         <configuration>
-          <offline>true</offline>
+          <addResources>false</addResources>
         </configuration>
       </plugin>
     </plugins>

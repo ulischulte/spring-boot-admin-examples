@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 ext {
-    set('springBootAdminVersion', "2.5.4")
+    set('springBootAdminVersion', "2.6.0-SNAPSHOT")
 }
 
 configurations {

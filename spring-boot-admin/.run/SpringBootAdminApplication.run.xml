@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="SpringBootAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="SpringBootAdminApplication nosecurity " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="spring-boot-admin" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="de.codecentric.springbootadmin.SpringBootAdminApplication" />
+    <option name="ACTIVE_PROFILES" value="nosecurity" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
       <option name="Make" enabled="true" />
