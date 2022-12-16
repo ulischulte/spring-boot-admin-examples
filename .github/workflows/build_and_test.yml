@@ -15,25 +15,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/spring-boot-admin-3/.gradle/caches
-            ~/spring-boot-admin-3/.gradle/wrapper
-            ~/hello-spring-boot-admin-3/.gradle/caches
-            ~/hello-spring-boot-admin-3/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '17'
-      - name: Run builds
+          cache: gradle
+      - name: Run build and test spring-boot-admin-3
         run: |
-          ~/spring-boot-admin-3/gradlew clean build
-          ~/hello-spring-boot-admin-3/gradlew clean build
+          ./gradlew clean build
+        working-directory: spring-boot-admin-3
+      - name: Run build and test hello-spring-boot-admin-3
+        run: |
+          ./gradlew clean build
+        working-directory: hello-spring-boot-admin-3
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
