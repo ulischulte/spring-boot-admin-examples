@@ -19,8 +19,10 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
+            ~/spring-boot-admin-3/.gradle/caches
+            ~/spring-boot-admin-3/.gradle/wrapper
+            ~/hello-spring-boot-admin-3/.gradle/caches
+            ~/hello-spring-boot-admin-3/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
@@ -28,9 +30,10 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '17'
-      - name: Run build
+      - name: Run builds
         run: |
-          ./gradlew clean build
+          ~/spring-boot-admin-3/gradlew clean build
+          ~/hello-spring-boot-admin-3/gradlew clean build
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
