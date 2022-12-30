@@ -32,28 +32,21 @@ management:
 spring:
   application:
     name: spring-boot-admin-3
-  boot:
-    admin:
-      client:
-        url: http://localhost:8080
-        instance:
-          service-host-type: HOST_NAME
-          metadata:
-            tags:
-              environment: test
-              de-service-test-1: A large content
-              de-service-test-2: A large content
-              de-service-test-3: A large content
-              de-service-test-4: A large content
-              de-service-test-5: A large content
-              de-service-test-6: A large content
-            kubectl.kubernetes.io/last-applied-configuration: '{"name":"jvm.threads.peak","description":"The peak live thread count since the Java virtual machine started or peak was reset","baseUnit":"threads","measurements":[{"statistic":"VALUE","value":64.0}],"availableTags":[]}'
   config:
     import: optional:configserver:http://localhost:8888/
   jmx:
     enabled: true
   main:
     lazy-initialization: true
+  boot:
+    admin:
+      ui:
+        cache:
+          no-cache: true
+        resource-locations: file:/Users/ulrichschulte/Development/spring-boot-admin-dev/spring-boot-admin/spring-boot-admin-server-ui/target/dist/
+        template-location: file:/Users/ulrichschulte/Development/spring-boot-admin-dev/spring-boot-admin/spring-boot-admin-server-ui/target/dist/
+        cache-templates: false
+
 ---
 # tag::customization-external-views[]
 spring:
@@ -64,6 +57,9 @@ spring:
           - label: "🚀"
             url: https://codecentric.de
             order: 2000
+      # context-path: test/
+      client:
+        url: http://localhost:8080
 # end::customization-external-views[]
 ---
 # tag::customization-view-settings[]
@@ -75,4 +71,3 @@ spring:
           - name: "journal"
             enabled: false
 # end::customization-view-settings[]
-

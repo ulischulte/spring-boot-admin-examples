@@ -17,13 +17,14 @@ repositories {
 }
 
 dependencies {
-	implementation("de.codecentric:spring-boot-admin-starter-server:3.0.0-SNAPSHOT")
-	implementation("de.codecentric:spring-boot-admin-starter-client:3.0.0-SNAPSHOT")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-json")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("de.codecentric:spring-boot-admin-starter-client:3.0.0-SNAPSHOT")
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.86.Final:osx-aarch_64")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {

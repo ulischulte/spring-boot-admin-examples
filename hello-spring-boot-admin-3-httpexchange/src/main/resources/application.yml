@@ -1,0 +1,53 @@
+---
+info:
+  scm-url: "@scm.url@"
+  build-url: "https://travis-ci.org/codecentric/spring-boot-admin"
+
+logging:
+  level:
+    ROOT: info
+    de.codecentric: trace
+    org.springframework.web: debug
+  file:
+    name: "build/hello-spring-boot-3-httpexchange.log"
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    jolokia:
+      enabled: true
+    refresh:
+      enabled: true
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    env:
+      post:
+        enabled: true
+    health:
+      show-details: ALWAYS
+  server:
+    port: 9091
+
+spring:
+  application:
+    name: hello-spring-boot-3-httpexchange
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+  config:
+    import: optional:configserver:http://localhost:8888/
+  jmx:
+    enabled: true
+  main:
+    lazy-initialization: true
+server:
+  port: 9090
+
