@@ -13,9 +13,8 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
+    mavenLocal()
 }
-
-extra["springBootAdminVersion"] = "3.0.0-M4"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -23,14 +22,9 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("de.codecentric:spring-boot-admin-starter-client")
+    implementation("de.codecentric:spring-boot-admin-starter-client:3.0.0-M8")
+    implementation("io.netty:netty-resolver-dns-native-macos:4.1.86.Final:osx-aarch_64")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom("de.codecentric:spring-boot-admin-dependencies:${property("springBootAdminVersion")}")
-    }
 }
 
 tasks.withType<KotlinCompile> {
