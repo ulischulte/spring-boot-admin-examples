@@ -5,5 +5,5 @@
     ./gradlew bootRun
 
 ## Mappings
-- http://localhost:9090/hello
-- http://localhost:9091/actuator
+- http://localhost:8080/hello
+- http://localhost:8081/actuator
