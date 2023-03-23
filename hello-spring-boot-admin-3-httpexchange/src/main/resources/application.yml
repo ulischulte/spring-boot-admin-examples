@@ -19,21 +19,14 @@ management:
       exposure:
         include: "*"
   endpoint:
-    jolokia:
-      enabled: true
-    refresh:
-      enabled: true
-    restart:
-      enabled: true
     shutdown:
       enabled: true
     env:
-      post:
-        enabled: true
+      show-values: always
     health:
-      show-details: ALWAYS
+      show-details: always
   server:
-    port: 9091
+    port: 8081
 
 spring:
   application:
@@ -42,12 +35,10 @@ spring:
     admin:
       client:
         url: http://localhost:8080
-  config:
-    import: optional:configserver:http://localhost:8888/
   jmx:
     enabled: true
   main:
     lazy-initialization: true
 server:
-  port: 9090
+  port: 8080
 
