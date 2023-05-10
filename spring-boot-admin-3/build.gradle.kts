@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-	implementation("de.codecentric:spring-boot-admin-starter-server:3.0.4-SNAPSHOT")
-	implementation("de.codecentric:spring-boot-admin-starter-client:3.0.4-SNAPSHOT")
+	implementation("de.codecentric:spring-boot-admin-starter-server:3.0.3")
+	implementation("de.codecentric:spring-boot-admin-starter-client:3.0.3")
     implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
