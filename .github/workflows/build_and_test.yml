@@ -28,6 +28,10 @@ jobs:
         run: |
           ./gradlew clean build
         working-directory: hello-spring-boot-admin-3
+      - name: Run build and test spring-boot-admin-filtering-notifier
+        run: |
+          ./gradlew clean build
+        working-directory: spring-boot-admin-filtering-notifier
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
