@@ -1,8 +1,4 @@
 ---
-info:
-  scm-url: "@scm.url@"
-  build-url: "https://travis-ci.org/codecentric/spring-boot-admin"
-
 logging:
   level:
     ROOT: info
@@ -14,22 +10,22 @@ logging:
     file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
 
 management:
+  info:
+    java:
+      enabled: true
+      env:
+        enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
   endpoint:
-    jolokia:
-      enabled: true
     refresh:
       enabled: true
     restart:
       enabled: true
     shutdown:
       enabled: true
-    env:
-      post:
-        enabled: true
     health:
       show-details: ALWAYS
   server:
@@ -42,20 +38,6 @@ spring:
     admin:
       client:
         url: http://localhost:8080
-        instance:
-          service-host-type: HOST_NAME
-          metadata:
-            tags:
-              environment: test
-              de-service-test-1: A large content
-              de-service-test-2: A large content
-              de-service-test-3: A large content
-              de-service-test-4: A large content
-              de-service-test-5: A large content
-              de-service-test-6: A large content
-            kubectl.kubernetes.io/last-applied-configuration: '{"name":"jvm.threads.peak","description":"The peak live thread count since the Java virtual machine started or peak was reset","baseUnit":"threads","measurements":[{"statistic":"VALUE","value":64.0}],"availableTags":[]}'
-  config:
-    import: optional:configserver:http://localhost:8888/
   jmx:
     enabled: true
   main:
